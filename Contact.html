@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/finalProject.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAVQ91NfWW1UAfxyKFr0cKNXIrpuvizArw",
+            authDomain: "final-project-ea507.firebaseapp.com",
+            databaseURL: "https://final-project-ea507.firebaseio.com",
+            projectId: "final-project-ea507",
+            storageBucket: "final-project-ea507.appspot.com",
+            messagingSenderId: "595321143572"
+        };
+        firebase.initializeApp(config);
+    </script>
+</head>
+<body class="background">
+
+    <!-- bg image -->
+    <style>
+        body {
+            background-image: url("images/daisy.jpg");
+        }
+    </style>
+
+
+
+    <!-- nav -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Ashleigh Davis</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="Home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Movies.html">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Music.html">Music</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Books.html">Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Education.html">Education</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Travel.html">Family</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Pets.html">Pets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Concerts.html">Concerts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact.html">Contact</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="jumbotron m-xl-5">
+        <h1 class="display-4">Contact Me!</h1>
+
+    </div>
+
+    <style>
+        input {
+            width: 50%;
+        }
+    </style>
+
+    <div class="form-group ml-xl-5">
+        <form method="post" action="#">
+            <br>
+            <input class="form-control-lg" placeholder="First Name" type="text" name="fname" id="fname"><br>
+            <br>
+            <input class="form-control-lg" placeholder="Last Name" type="text" name="lname" id="lname"><br>
+            <br>
+            <input class="form-control-lg" placeholder="Email" type="email" name="email" id="email"><br>
+            <br>
+            <button class="btn-warning"   type="button" onclick="addData()">Sumbit</button>
+        </form>
+    </div>
+
+    <script>
+        function addData(){
+            alert("adding data");
+            var first_name = document.getElementById("fname").value;
+            var last_name = document.getElementById("lname").value;
+            var email = document.getElementById("email").value;
+
+            db.collection("contacts").add({
+                firstname: first_name,
+                lastname: last_name,
+                email: email
+            })
+                .then(function(docRef) {
+                    console.log("Document written with ID: ", docRef.id);
+                    //update the products view
+                    getProducts();
+                })
+                .catch(function(error) {
+                    console.error("Error adding document: ", error);
+                });
+        }
+    </script>
+
+
+
+    <!-- footer -->
+    <div class="footer">
+        <p class="footertext">© Copyright 2019</p>
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
